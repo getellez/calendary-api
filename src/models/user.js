@@ -26,7 +26,7 @@ const User = sequelize.define('users', {
     field: 'last_name'
   },
   birthdate: {
-    type: DataTypes.DATE,
+    type: DataTypes.DATEONLY,
     allowNull: true,
     field: 'birth_date'
   }
