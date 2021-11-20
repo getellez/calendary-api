@@ -1,0 +1,28 @@
+version: '3.1'
+
+services:
+
+  db:
+    image: postgres:14-bullseye
+    restart: always
+    ports:
+      - "5432:5432"
+    volumes:
+      - calendary_data_volume:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: calendary_user
+      POSTGRES_PASSWORD: s3cr3t
+      POSTGRES_DB: calendary_db
+
+  pgadmin:
+    container_name: pgadmin4_container
+    image: dpage/pgadmin4
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: s3cr3t
+    ports:
+      - "5050:80"
+
+volumes:
+  calendary_data_volume:
