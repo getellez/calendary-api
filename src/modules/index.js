@@ -1,7 +1,7 @@
 const userRoutes = require('./users/users.routes')
 
 const mainRouter = (app) => {
-  app.get('/v1/users', userRoutes)
+  app.use('/v1/users', userRoutes)
 
   return app
 }
