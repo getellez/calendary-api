@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
+    "dev": "nodemon ./bin/www",
     "lint": "standard",
     "lint:fix": "standard --fix",
     "prepare": "husky install",
@@ -12,6 +13,7 @@
   "dependencies": {
     "cookie-parser": "1.4.4",
     "debug": "2.6.9",
+    "dotenv": "10.0.0",
     "express": "4.16.1",
     "morgan": "1.9.1",
     "pg": "8.7.1",
@@ -21,6 +23,7 @@
   "devDependencies": {
     "husky": "7.0.4",
     "jest": "27.3.1",
+    "nodemon": "2.0.15",
     "standard": "16.0.4"
   }
 }
