@@ -1,4 +1,4 @@
-const success = (req, res, data, statusCode = 200, statusText = 'OK') => {
+const success = (req, res, statusCode = 200, data = '', statusText = 'OK') => {
   res.status(statusCode).send({
     statusText,
     statusCode,
@@ -6,7 +6,7 @@ const success = (req, res, data, statusCode = 200, statusText = 'OK') => {
   })
 }
 
-const error = (req, res, error, statusCode = 500, statusText = 'FAIL') => {
+const error = (req, res, statusCode = 500, error = '', statusText = 'FAIL') => {
   res.status(statusCode).send({
     statusText,
     statusCode,
