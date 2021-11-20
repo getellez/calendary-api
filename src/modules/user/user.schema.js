@@ -6,6 +6,11 @@ const createUserSchema = Joi.object({
   birthdate: Joi.date().required()
 })
 
+const getUserByIdSchema = Joi.object({
+  userId: Joi.string().guid({ version: ['uuidv4'] })
+})
+
 module.exports = {
+  getUserByIdSchema,
   createUserSchema
 }

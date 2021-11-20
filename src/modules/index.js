@@ -1,4 +1,4 @@
-const userRoutes = require('./users/users.routes')
+const userRoutes = require('./user/user.routes')
 
 const mainRouter = (app) => {
   app.use('/api/v1/users', userRoutes)

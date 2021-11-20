@@ -1,8 +1,11 @@
 const express = require('express')
+const { validateSchema } = require('../../middlewares/user.middlewares')
 const router = express.Router()
-const userController = require('./users.controllers')
+const userController = require('./user.controllers')
+const { getUserByIdSchema } = require('./user.schema')
 
 router.get('/', userController.getUsers)
+router.get('/:userId', validateSchema(getUserByIdSchema, 'params'), userController.getUserById)
 router.post('/', userController.createUser)
 
 module.exports = router
