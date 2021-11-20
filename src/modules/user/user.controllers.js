@@ -1,6 +1,6 @@
 const UserModel = require('../../models/user')
-const { createUserSchema } = require('./users.schema')
-const userService = require('./users.services')
+const { createUserSchema } = require('./user.schema')
+const userService = require('./user.services')
 const responseHandler = require('../../utils/responseHandler')
 
 const getUsers = async (req, res, next) => {

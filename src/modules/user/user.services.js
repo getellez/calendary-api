@@ -1,4 +1,4 @@
-const userStore = require('./users.store')
+const userStore = require('./user.store')
 
 const getUsers = async (UserModel, params) => {
   const users = await userStore.getUsers(UserModel, params)
