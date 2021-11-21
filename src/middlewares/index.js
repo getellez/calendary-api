@@ -1,9 +1,9 @@
 const responseHandler = require('../utils/responseHandler')
 
-const validateSchema = (schema, data) => {
+const schemaValidator = (schema, source = 'body') => {
   return async (req, res, next) => {
     try {
-      await schema.validateAsync(req[data])
+      await schema.validateAsync(req[source])
       next()
     } catch (error) {
       responseHandler.error(req, res, 400)
@@ -12,5 +12,5 @@ const validateSchema = (schema, data) => {
 }
 
 module.exports = {
-  validateSchema
+  schemaValidator
 }

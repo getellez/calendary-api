@@ -36,7 +36,7 @@ const Profile = sequelize.define('profile', {
 Profile.belongsTo(UserModel, {
   foreignKey: {
     name: 'user_id',
-    type: DataTypes.UUID,
+    type: DataTypes.UUID
   },
   as: 'user'
 })

@@ -1,4 +1,4 @@
-const Joi = require("joi");
+const Joi = require('joi')
 
 const getProfileSchema = Joi.object({
   userId: Joi.string().guid({ version: ['uuidv4'] }).required()
