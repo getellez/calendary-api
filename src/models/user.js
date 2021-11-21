@@ -4,7 +4,6 @@ const { DataTypes } = require('sequelize')
 const User = sequelize.define('users', {
   id: {
     type: DataTypes.INTEGER,
-    primaryKey: true,
     autoIncrement: true,
     unique: true
   },
@@ -12,6 +11,7 @@ const User = sequelize.define('users', {
     type: DataTypes.UUID,
     allowNull: false,
     defaultValue: DataTypes.UUIDV4,
+    primaryKey: true,
     unique: true,
     field: 'user_id'
   },
@@ -32,7 +32,6 @@ const User = sequelize.define('users', {
   }
 }, {
   tableName: 'users',
-  freezeTableName: true,
   timestamps: true,
   createdAt: 'created_at',
   updatedAt: 'updated_at'

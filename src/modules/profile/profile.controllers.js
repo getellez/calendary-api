@@ -22,7 +22,21 @@ const createProfile = async (req, res, next) => {
   }
 }
 
+const updateProfile = async (req, res, next) => {
+  try {
+    const { userId } = req.params
+    const payload = req.body
+    console.log('userId :>> ', userId);
+    console.log('payload :>> ', payload);
+    const profile = await profileService.updateProfile(ProfileModel, userId, payload)
+    responseHandler.success(req, res, 200, profile)
+  } catch (error) {
+    next(error)
+  }
+}
+
 module.exports = {
   getProfileByUserId,
-  createProfile
+  createProfile,
+  updateProfile
 }

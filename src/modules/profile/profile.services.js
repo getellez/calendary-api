@@ -10,7 +10,13 @@ const createProfile = async (ProfileModel, payload) => {
   return profile
 }
 
+const updateProfile = async (ProfileModel, userId, payload) => {
+  const profile = await profileStore.updateProfile(ProfileModel, userId, payload)
+  return profile
+}
+
 module.exports = {
   getProfileByUserId,
-  createProfile
+  createProfile,
+  updateProfile
 }

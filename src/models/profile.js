@@ -2,7 +2,7 @@ const sequelize = require('../utils/sequelize')
 const { DataTypes } = require('sequelize')
 const UserModel = require('./user')
 
-const Profile = sequelize.define('users', {
+const Profile = sequelize.define('profile', {
   id: {
     type: DataTypes.INTEGER,
     autoIncrement: true,
@@ -11,18 +11,14 @@ const Profile = sequelize.define('users', {
   },
   userId: {
     type: DataTypes.UUID,
-    field: 'user_id',
-    references: {
-      model: UserModel,
-      key: 'user_id'
-    }
+    field: 'user_id'
   },
   profileImageUrl: {
     type: DataTypes.STRING,
     allowNull: true,
     field: 'profile_image_url'
   },
-  profile_description: {
+  profileDescription: {
     type: DataTypes.STRING,
     allowNull: true,
     field: 'profile_description'
@@ -34,8 +30,15 @@ const Profile = sequelize.define('users', {
   }
 }, {
   tableName: 'profiles',
-  freezeTableName: true,
   timestamps: false
+})
+
+Profile.belongsTo(UserModel, {
+  foreignKey: {
+    name: 'user_id',
+    type: DataTypes.UUID,
+  },
+  as: 'user'
 })
 
 module.exports = Profile
