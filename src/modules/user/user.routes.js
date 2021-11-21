@@ -1,5 +1,5 @@
 const express = require('express')
-const { validateSchema } = require('../../middlewares/user.middlewares')
+const { validateSchema } = require('../../middlewares')
 const router = express.Router()
 const userController = require('./user.controllers')
 const { getUserByIdSchema } = require('./user.schema')
