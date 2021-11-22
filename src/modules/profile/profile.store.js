@@ -10,7 +10,6 @@ const createProfile = async (ProfileModel, payload) => {
 
 const updateProfile = async (ProfileModel, userId, payload) => {
   const profile = await ProfileModel.update(payload, { where: { userId } })
-  console.log('profile', profile)
   return profile
 }
 

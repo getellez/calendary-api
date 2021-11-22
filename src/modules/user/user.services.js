@@ -10,14 +10,25 @@ const getUserById = async (UserModel, userId) => {
   return users
 }
 
+const deleteUser = async (UserModel, userId) => {
+  const users = await userStore.deleteUser(UserModel, userId)
+  return users
+}
+
 const createUser = async (UserModel, payload) => {
-  payload.birthdate = new Date(payload.birthdate)
   const user = await userStore.createUser(UserModel, payload)
+  return user
+}
+
+const updateUser = async (UserModel, userId, payload) => {
+  const user = await userStore.updateUser(UserModel, userId, payload)
   return user
 }
 
 module.exports = {
   getUsers,
   getUserById,
-  createUser
+  createUser,
+  updateUser,
+  deleteUser
 }
