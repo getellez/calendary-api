@@ -18,7 +18,10 @@ npm run dev
 # Environments
 You can assign 1 of 3 options to the NODE_ENV variable in the `.env` file.
 
-- NODE_ENV=development
-  - This option is used by the developers in their computers
-- NODE_ENV=demo
-- NODE_ENV=production
+```
+NODE_ENV=development      # Used by the developers in their computers
+
+NODE_ENV=demo             # Used in demo environment
+
+NODE_ENV=production       # Used in production environment
+```
