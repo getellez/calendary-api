@@ -6,6 +6,8 @@ const { mainRouter } = require('./src/modules')
 
 let app = express()
 
+require('./src/middlewares/auth')
+
 app.use(logger('dev'))
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
