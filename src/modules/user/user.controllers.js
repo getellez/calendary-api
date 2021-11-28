@@ -22,16 +22,6 @@ const getUserById = async (req, res, next) => {
   }
 }
 
-const createUser = async (req, res, next) => {
-  try {
-    const payload = req.body
-    const user = await userService.createUser(UserModel, payload)
-    responseHandler.success(req, res, 201, user)
-  } catch (error) {
-    next(error)
-  }
-}
-
 const updateUser = async (req, res, next) => {
   try {
     const { userId } = req.params
@@ -56,7 +46,6 @@ const deleteUser = async (req, res, next) => {
 module.exports = {
   getUsers,
   getUserById,
-  createUser,
   updateUser,
   deleteUser
 }

@@ -8,11 +8,6 @@ const getUserById = async (UserModel, userId) => {
   return user
 }
 
-const createUser = async (UserModel, payload) => {
-  const user = await UserModel.create(payload)
-  return user.toJSON()
-}
-
 const updateUser = async (UserModel, userId, payload) => {
   const user = await UserModel.update(payload, { where: { userId } })
   return user
@@ -26,7 +21,6 @@ const deleteUser = async (UserModel, userId) => {
 module.exports = {
   getUsers,
   getUserById,
-  createUser,
   updateUser,
   deleteUser
 }

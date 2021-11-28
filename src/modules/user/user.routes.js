@@ -1,14 +1,30 @@
 const express = require('express')
-const { schemaValidator } = require('../../middlewares')
-const router = express.Router()
+const passport = require('passport')
 const userController = require('./user.controllers')
-const { getUserByIdSchema, createUserSchema, updateUserSchema } = require('./user.schema')
+const { schemaValidator } = require('../../middlewares')
+const { getUserByIdSchema, updateUserSchema } = require('./user.schema')
 
-router.get('/', userController.getUsers)
-router.get('/:userId', schemaValidator(getUserByIdSchema, 'params'), userController.getUserById)
-router.post('/', schemaValidator(createUserSchema, 'body'), userController.createUser)
-router.delete('/:userId', schemaValidator(getUserByIdSchema, 'params'), userController.deleteUser)
+const router = express.Router()
+
+router.get('/', 
+  passport.authenticate('jwt', { session: false }),
+  userController.getUsers
+)
+
+router.get('/:userId', 
+  passport.authenticate('jwt', { session: false }),
+  schemaValidator(getUserByIdSchema, 'params'), 
+  userController.getUserById
+)
+
+router.delete('/:userId', 
+  passport.authenticate('jwt', { session: false }),
+  schemaValidator(getUserByIdSchema, 'params'), 
+  userController.deleteUser
+)
+
 router.put('/:userId',
+  passport.authenticate('jwt', { session: false }),
   schemaValidator(getUserByIdSchema, 'params'),
   schemaValidator(updateUserSchema, 'body'),
   userController.updateUser

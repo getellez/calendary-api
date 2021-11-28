@@ -1,6 +1,8 @@
 const passport = require('passport')
-const LocalStrategy = require('passport-local').Strategy
 const bcrypt = require('bcrypt')
+const LocalStrategy = require('passport-local').Strategy
+const JWTStrategy = require('passport-jwt').Strategy
+const ExtractJWT = require('passport-jwt').ExtractJwt
 const authStore = require('../modules/auth/auth.stores')
 const UserModel = require('../models/user')
 
@@ -22,3 +24,14 @@ passport.use('login',
     return done(null, user, { message: 'Login successful' })
   })
 )
+
+passport.use(new JWTStrategy({
+  secretOrKey: process.env.JWT_SECRET,
+  jwtFromRequest: ExtractJWT.fromAuthHeaderAsBearerToken()
+}, async (token, done) => {
+  try {
+    return done(null, token.user)
+  } catch (error) {
+    done(error)
+  }
+}))
