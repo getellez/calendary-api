@@ -5,6 +5,12 @@ const createUser = async (UserModel, payload) => {
   return user
 }
 
+const getUserById = async (UserModel, email) => {
+  const user = await authStore.getUserById(UserModel, email)
+  return user
+}
+
 module.exports = {
-  createUser
+  createUser,
+  getUserById
 }

@@ -86,7 +86,7 @@ function onError(error) {
 async function onListening() {
   try {
     await sequelize.authenticate()
-    await sequelize.sync({ force: true })
+    // await sequelize.sync({ force: true })
 
     const addr = server.address();
     const bind = typeof addr === 'string'

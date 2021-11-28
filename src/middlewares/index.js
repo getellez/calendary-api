@@ -6,7 +6,7 @@ const schemaValidator = (schema, source = 'body') => {
       await schema.validateAsync(req[source])
       next()
     } catch (error) {
-      responseHandler.error(req, res, 400)
+      responseHandler.error(req, res, 400, 'Invalid incoming data')
     }
   }
 }

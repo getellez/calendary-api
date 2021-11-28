@@ -1,13 +1,5 @@
 const Joi = require('joi')
 
-const createUserSchema = Joi.object({
-  name: Joi.string().required(),
-  lastName: Joi.string().required(),
-  birthdate: Joi.date().required(),
-  email: Joi.string().email().required(),
-  password: Joi.string().required()
-})
-
 const updateUserSchema = Joi.object({
   name: Joi.string().optional(),
   lastName: Joi.string().optional(),
@@ -20,6 +12,5 @@ const getUserByIdSchema = Joi.object({
 
 module.exports = {
   getUserByIdSchema,
-  createUserSchema,
   updateUserSchema
 }

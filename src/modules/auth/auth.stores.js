@@ -3,6 +3,12 @@ const createUser = async (UserModel, payload) => {
   return user.toJSON()
 }
 
+const getUserById = async (UserModel, email) => {
+  const user = await UserModel.findOne({ where: { email } })
+  return user
+}
+
 module.exports = {
-  createUser
+  createUser,
+  getUserById
 }
