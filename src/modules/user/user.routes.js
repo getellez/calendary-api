@@ -6,20 +6,20 @@ const { getUserByIdSchema, updateUserSchema } = require('./user.schema')
 
 const router = express.Router()
 
-router.get('/', 
+router.get('/',
   passport.authenticate('jwt', { session: false }),
   userController.getUsers
 )
 
-router.get('/:userId', 
+router.get('/:userId',
   passport.authenticate('jwt', { session: false }),
-  schemaValidator(getUserByIdSchema, 'params'), 
+  schemaValidator(getUserByIdSchema, 'params'),
   userController.getUserById
 )
 
-router.delete('/:userId', 
+router.delete('/:userId',
   passport.authenticate('jwt', { session: false }),
-  schemaValidator(getUserByIdSchema, 'params'), 
+  schemaValidator(getUserByIdSchema, 'params'),
   userController.deleteUser
 )
 
