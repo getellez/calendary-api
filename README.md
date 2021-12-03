@@ -3,6 +3,7 @@ An app to handle your schedule
 
 # Requirements
 - Node.js v16 LTS
+- Docker
 
 # Run
 
